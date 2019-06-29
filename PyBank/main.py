@@ -37,21 +37,17 @@ with open(csvpath, newline='') as csvfile:
 MonthValMin = ChangeValue.index(min(ChangeValue)) +1    # add 1 my ChangeList has one less element
 MonthValMax = ChangeValue.index(max(ChangeValue)) +1
 
-# print ("Financial Analysis")
-# print ("----------------------------")
-# print('Total Months: ' + str(RowCount))
-# print ('Total: ' + str(sum(PnLVal)))
-# print ('Average Change: ' + str(round(sum(ChangeValue)/len(ChangeValue),2)))
-# print ('Greatest Increase in Profits: ' + str(MonthVal[MonthValMax]) + ' ' + str(max(ChangeValue)))
-# print ('Greatest Decrease in Profits: ' + str(MonthVal[MonthValMin]) + ' ' +  str(min(ChangeValue)))
 
 line1 = 'Financial Analysis'
 line2 = '----------------------------'
 line3 = 'Total Months: ' + str(RowCount)
-line4 = 'Total: ' + str(sum(PnLVal))
-line5 = 'Average Change: ' + str(round(sum(ChangeValue)/len(ChangeValue),2))
-line6 = 'Greatest Increase in Profits: ' + str(MonthVal[MonthValMax]) + ' ' + str(max(ChangeValue))
-line7 = 'Greatest Decrease in Profits: ' + str(MonthVal[MonthValMin]) + ' ' +  str(min(ChangeValue))
+line4 = 'Total: $' + str(round(sum(PnLVal), 0))
+line5 = 'Average Change: $' + str(round(sum(ChangeValue)/len(ChangeValue),2))
+line6 = 'Greatest Increase in Profits: ' + str(MonthVal[MonthValMax]) + ' ($' + str(round(max(ChangeValue), 0)) + ')'
+line7 = 'Greatest Decrease in Profits: ' + str(MonthVal[MonthValMin]) + ' ($' +  str(round(min(ChangeValue), 0)) + ')'
+
+# TODO not sure why round is not working in some case above
+
 
 print(line1)
 print(line2)
@@ -63,10 +59,10 @@ print(line7)
 
 text_file = open("PyBank.txt", "w")
 
-#Enter list of products
+#Enter list of lines
 lines = [line1, line2, line3, line4, line5, line6, line7] #Formerly "lines" variable
 
-#Enter each product on a new line
+#Enter each line on a new line
 for l in lines:
     text_file.writelines(l)
     text_file.writelines('\n')
