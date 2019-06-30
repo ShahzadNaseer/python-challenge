@@ -2,7 +2,9 @@ import os
 
 import csv
 
-csvpath = os.path.join('D:\GitRepo\RiceBootCamp\python-challenge', 'Resources', 'budget_data.csv')
+#csvpath = os.path.join('D:\GitRepo\RiceBootCamp\python-challenge', 'Resources', 'budget_data.csv')
+csvpath = os.path.join('../', 'Resources', 'budget_data.csv')
+
 
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -46,8 +48,8 @@ line5 = 'Average Change: $' + str(round(sum(ChangeValue)/len(ChangeValue),2))
 line6 = 'Greatest Increase in Profits: ' + str(MonthVal[MonthValMax]) + ' ($' + str(round(max(ChangeValue), 0)) + ')'
 line7 = 'Greatest Decrease in Profits: ' + str(MonthVal[MonthValMin]) + ' ($' +  str(round(min(ChangeValue), 0)) + ')'
 
-# TODO not sure why round is not working in some case above
-
+#print(type(max(ChangeValue)))
+# TODO not sure why round is not working in some case above, type is float
 
 print(line1)
 print(line2)
