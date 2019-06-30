@@ -1,5 +1,7 @@
 # Homework Week 3 - Python Challenge
+
 Two assignments to work on:
+
 ## 1. PyBank
 A .CSV file with months and profit or loss (amounts) was provided, and students are supposed to find:
 
